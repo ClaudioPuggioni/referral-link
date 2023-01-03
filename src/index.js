@@ -12,7 +12,7 @@ root.render(
     <Routes>
       <Route path={"/"} element={<App />} />
       <Route path={"/:referral"} element={<Payments />} />
-      <Route path={"/success"} element={<SignedUp />} />
+      <Route path={"/success/:referrer"} element={<SignedUp />} />
     </Routes>
   </Router>
 );

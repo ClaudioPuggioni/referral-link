@@ -4,11 +4,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { db } from "../db-config";
 
 export default function Payments() {
+  const { referral } = useParams();
   const [referrerName, setReferrerName] = useState("");
   const [newUsername, setNewUsername] = useState("");
   const goTo = useNavigate();
 
-  const { referral } = useParams();
   useEffect(() => {
     console.log(referral);
     findUserDB(referral);
@@ -43,7 +43,7 @@ export default function Payments() {
       referred: arrayUnion(newUsername),
     });
 
-    goTo("/success");
+    goTo(`/success/${referrerName}`);
   };
 
   return (
