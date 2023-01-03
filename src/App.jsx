@@ -32,7 +32,7 @@ export default function App() {
         </div>
       </div>
       <div className="h-1">
-        {myLink.length > 0 ? <input className="py-1.5 pl-4 rounded w-[370px]" type="text" value={myLink} readOnly></input> : null}
+        {myLink.length > 0 ? <input className="py-1.5 pl-4 rounded w-[390px]" type="text" value={myLink} readOnly></input> : null}
       </div>
     </div>
   );
