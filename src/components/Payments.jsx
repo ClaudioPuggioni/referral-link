@@ -22,7 +22,7 @@ export default function Payments() {
     const querySnapshot = await getDocs(queryUser);
 
     if (querySnapshot.empty) {
-      return console.log("No user tied to refID");
+      return goTo("/404");
     } else {
       console.log("User found");
     }
