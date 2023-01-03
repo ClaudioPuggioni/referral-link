@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { customAlphabet } from "nanoid";
-import { uniqueNamesGenerator, Config, starWars } from "unique-names-generator";
+import { uniqueNamesGenerator, starWars } from "unique-names-generator";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../db-config";
 
