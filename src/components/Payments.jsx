@@ -42,8 +42,9 @@ export default function Payments() {
     if (newUsername.length === 0) return;
 
     ReactGA.event({
-      category: `Signed Up to ${newUsername}`,
+      category: "Signed_Up",
       action: "Clicked Sign Up Button",
+      label: `${newUsername} signed up to ${referrerName}`,
     });
 
     const userRef = doc(db, "users", referrerName);
