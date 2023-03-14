@@ -44,7 +44,7 @@ export default function Payments() {
     ReactGA.event({
       category: `${newUsername} signed up to ${referrerName}`,
       action: "Clicked Sign Up Button",
-      value: true,
+      value: "true",
     });
 
     const userRef = doc(db, "users", referrerName);
