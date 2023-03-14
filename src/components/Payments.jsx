@@ -1,6 +1,7 @@
 import { arrayUnion, collection, doc, getDocs, query, updateDoc, where } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import ReactGA from "..";
 import { db } from "../db-config";
 
 export default function Payments() {
@@ -12,6 +13,8 @@ export default function Payments() {
   useEffect(() => {
     console.log(referral);
     findUserDB(referral);
+
+    ReactGA.send({ hitType: "pageview", page: window.location.pathname, title: "Sign Up Page" });
     // eslint-disable-next-line
   }, []);
 
@@ -37,6 +40,11 @@ export default function Payments() {
 
   const handleSignup = async () => {
     if (newUsername.length === 0) return;
+
+    ReactGA.event({
+      category: `Signed Up to ${newUsername}`,
+      action: "Clicked Sign Up Button",
+    });
 
     const userRef = doc(db, "users", referrerName);
     await updateDoc(userRef, {

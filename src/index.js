@@ -6,6 +6,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Payments from "./components/Payments";
 import SignedUp from "./components/SignedUp";
 import Page404 from "./components/Page404";
+import ReactGA from "react-ga4";
+
+ReactGA.initialize("G-ZV0NJ0KCDP");
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,3 +21,5 @@ root.render(
     </Routes>
   </Router>
 );
+
+export default ReactGA;

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { customAlphabet } from "nanoid";
 import { uniqueNamesGenerator, starWars } from "unique-names-generator";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../db-config";
+import ReactGA from "..";
 
 let myTimeout;
 const nanoid = customAlphabet("1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", 17);
@@ -14,6 +15,10 @@ export default function App() {
   const [myLink, setMyLink] = useState("");
   const [popup, setPopup] = useState(false);
   const [myName, setMyName] = useState("");
+
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", page: window.location.pathname, title: "Landing/Create Referral Link Page" });
+  }, []);
 
   const handleClick = () => {
     clearTimeout(myTimeout);
