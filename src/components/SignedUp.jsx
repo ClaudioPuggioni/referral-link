@@ -1,6 +1,7 @@
 import { doc, getDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import ReactGA from "..";
 import { db } from "../db-config";
 
 export default function SignedUp() {
@@ -9,6 +10,8 @@ export default function SignedUp() {
 
   useEffect(() => {
     findUserDB();
+
+    ReactGA.send({ hitType: "pageview", page: window.location.pathname, title: "Total Sign Ups" });
     // eslint-disable-next-line
   }, []);
 
